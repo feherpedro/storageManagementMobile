@@ -2,17 +2,17 @@ import { HttpClient, HttpResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import "rxjs/add/operator/map";
 import { Observable } from "rxjs/Observable";
+import { Product } from "~/scan/product.model";
 
-import { Product } from "./product.model";
 // import { createRequestOption } from "../../shared";
 
 export type EntityResponseType = HttpResponse<Product>;
 
 @Injectable()
-export class ProductService {
+export class OrderService {
 
-    private resourceUrl =  "http://192.168.0.102:7777/api/products";
-    private resourceSearchUrl = "http://192.168.56.1:7777/api/_search/products";
+    private resourceUrl =  "http://192.168.0.102:8888/api/products";
+    private resourceSearchUrl = "http://192.168.56.1:8888/api/_search/products";
 
     constructor(private http: HttpClient) { }
 
