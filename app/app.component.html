@@ -46,6 +46,13 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
 
                 <StackLayout class="hr-light"></StackLayout>
 
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('Product')" (tap)="onNavItemTap('/products')">
+                    <Label col="0" text="&#xf005;" class="fa"></Label>
+                    <Label col="1" text="Termékek" class="p-r-10"></Label>
+                </GridLayout>
+
+                <StackLayout class="hr-light"></StackLayout>
+
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('OrderEntity')" (tap)="onNavItemTap('/order-entities')">
                     <Label col="0" text="&#xf005;" class="fa"></Label>
                     <Label col="1" text="Bevételezések" class="p-r-10"></Label>
