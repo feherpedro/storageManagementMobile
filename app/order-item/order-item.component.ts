@@ -15,11 +15,11 @@ import { ProductService } from "~/scan/product.service";
 *************************************************************/
 
 @Component({
-    selector: "Scan",
+    selector: "OrderEntity",
     moduleId: module.id,
-    templateUrl: "./scan.component.html"
+    templateUrl: "./order-item.component.html"
 })
-export class OrderComponent implements OnInit {
+export class OrderItemComponent implements OnInit {
 
     private scanned = false;
     private scannedFormat = "";
