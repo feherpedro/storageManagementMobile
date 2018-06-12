@@ -6,9 +6,13 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
 <RadSideDrawer [drawerTransition]="sideDrawerTransition">
     <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
         <StackLayout row="0" class="sidedrawer-header">
-            <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
+            <!--<Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
             <Label class="sidedrawer-header-brand" text="User Name"></Label>
-            <Label class="footnote" text="username@mail.com"></Label>
+            <Label class="footnote" text="username@mail.com"></Label>-->
+            <!--<Label class="sidedrawer-header-raktar-image fa" text="&#xf2bd;"></Label>-->
+            <Image src="App_Resources/raktar.png" class="sidedrawer-header-raktar-image fa"> </Image>
+            <Label class="sidedrawer-header-brand" text="Raktár nyilvántartó rendszer"></Label>
+            <Label class="footnote" text="Fehér Péter"></Label>
         </StackLayout>
 
         <ScrollView row="1">
@@ -38,6 +42,20 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('Scan')" (tap)="onNavItemTap('/scan')">
                     <Label col="0" text="&#xf005;" class="fa"></Label>
                     <Label col="1" text="Scan" class="p-r-10"></Label>
+                </GridLayout>
+
+                <StackLayout class="hr-light"></StackLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('Product')" (tap)="onNavItemTap('/products')">
+                    <Label col="0" text="&#xf005;" class="fa"></Label>
+                    <Label col="1" text="Termékek" class="p-r-10"></Label>
+                </GridLayout>
+
+                <StackLayout class="hr-light"></StackLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isPageSelected('OrderEntity')" (tap)="onNavItemTap('/order-entities')">
+                    <Label col="0" text="&#xf005;" class="fa"></Label>
+                    <Label col="1" text="Bevételezések" class="p-r-10"></Label>
                 </GridLayout>
 
                 <StackLayout class="hr-light"></StackLayout>

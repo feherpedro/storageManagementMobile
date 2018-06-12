@@ -1,18 +1,21 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 
+import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { BarcodeScanner } from "nativescript-barcodescanner";
-import { OrderRoutingModule } from "~/order/order-routing.module";
-import { OrderComponent } from "~/order/order.component";
+import { OrderItemRoutingModule } from "~/order-item/order-item-routing.module";
+import { OrderItemComponent } from "~/order-item/order-item.component";
+import { OrderItemService } from "~/order-item/order-item.service";
 import { ProductService } from "~/scan/product.service";
 
 @NgModule({
     imports: [
         NativeScriptHttpClientModule,
-        OrderRoutingModule
+        NativeScriptCommonModule,
+        OrderItemRoutingModule
     ],
     declarations: [
-        OrderComponent
+        OrderItemComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
@@ -20,7 +23,8 @@ import { ProductService } from "~/scan/product.service";
     providers: [
         NativeScriptHttpClientModule,
         ProductService,
+        OrderItemService,
         BarcodeScanner
     ]
 })
-export class OrderModule { }
+export class OrderItemModule { }
