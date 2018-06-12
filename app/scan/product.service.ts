@@ -11,8 +11,8 @@ export type EntityResponseType = HttpResponse<Product>;
 @Injectable()
 export class ProductService {
 
-    private resourceUrl =  "http://192.168.0.102:7777/api/products";
-    private resourceSearchUrl = "http://192.168.56.1:7777/api/_search/products";
+    private resourceUrl =  "https://storage-management.herokuapp.com/api/products";
+    private resourceSearchUrl = "https://storage-management.herokuapp.com/api/_search/products";
 
     constructor(private http: HttpClient) { }
 

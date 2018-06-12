@@ -49,6 +49,16 @@ $sidedrawer-list-icon-size: 20;
             margin-top: $sidedrawer-header-image-offset-top;
         }
 
+        .sidedrawer-header-raktar-image {
+            height: $sidedrawer-header-image-size;
+            width: $sidedrawer-header-image-size;
+            font-size: $sidedrawer-header-image-size;
+            padding: 0;
+            margin-bottom: $sidedrawer-header-image-offset-bottom;
+            margin-top: $sidedrawer-header-image-offset-top;
+            background-image: url("App_Resources/raktar.png");
+        }
+
         .footnote {
             color: rgba($ab-color, 0.5);
         }

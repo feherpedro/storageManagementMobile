@@ -1,4 +1,5 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
+import { NativeScriptCommonModule } from "nativescript-angular/common";
 
 import { ScanRoutingModule } from "./scan-routing.module";
 import { ScanComponent } from "./scan.component";
@@ -11,6 +12,7 @@ import { ProductService } from "~/scan/product.service";
 @NgModule({
     imports: [
         NativeScriptHttpClientModule,
+        NativeScriptCommonModule,
         ScanRoutingModule
     ],
     declarations: [
