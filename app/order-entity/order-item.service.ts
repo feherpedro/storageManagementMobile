@@ -11,8 +11,8 @@ export type EntityResponseType = HttpResponse<OrderItem>;
 @Injectable()
 export class OrderItemService {
 
-    private resourceUrl =  "https://storage-management.herokuapp.com/api/order-entities";
-    private resourceSearchUrl = "https://storage-management.herokuapp.com/api/_search/order-entities";
+    private resourceUrl =  "https://storage-management.herokuapp.com/api/order-items";
+    private resourceSearchUrl = "https://storage-management.herokuapp.com/api/_search/order-items";
 
     constructor(private http: HttpClient, private dateHelperService: DateHelperService) { }
 

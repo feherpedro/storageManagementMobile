@@ -15,7 +15,7 @@ import { ProductService } from "~/scan/product.service";
 *************************************************************/
 
 @Component({
-    selector: "OrderEntity",
+    selector: "OrderItem",
     moduleId: module.id,
     templateUrl: "./order-item.component.html"
 })

@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { DateHelperService } from "~/date-helper.service";
 import { OrderEntity } from "~/order-entity/order-entity.model";
-import { OrderItem } from "~/order-item/order-item.model";
+import { OrderItem } from "~/order-entity/order-item.model";
 
 // import { createRequestOption } from "../../shared";
 

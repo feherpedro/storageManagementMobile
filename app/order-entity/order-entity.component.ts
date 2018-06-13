@@ -7,7 +7,6 @@ import { BarcodeScanner } from "nativescript-barcodescanner";
 // import { TNSFancyAlert } from "nativescript-fancyalert";
 import { ListViewEventData, RadListView } from "nativescript-ui-listview";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
-import { ObservableArray } from "tns-core-modules/data/observable-array";
 import * as FrameModule from "ui/frame";
 import * as Utils from "utils/utils";
 import { OrderEntityDialogComponent } from "~/order-entity/order-entity-dialog.component";
@@ -27,6 +26,7 @@ export class OrderEntityComponent implements OnInit, AfterViewInit {
     private MAX_X = 80;
     private THRESHOLD = 0.5;
     private selected: number;
+    private isBusy = true;
 
     constructor(private barcodeScanner: BarcodeScanner,
                 private orderEntityService: OrderEntityService,
@@ -37,14 +37,14 @@ export class OrderEntityComponent implements OnInit, AfterViewInit {
 
     ngOnInit(): void {
         // setTimeout(() => {
-            this.loadAll();
+        //     this.loadAll();
         // }, 0);
     }
 
     ngAfterViewInit(): void {
-        /*setTimeout(() => {
+        // setTimeout(() => {
             this.loadAll();
-        }, 0);*/
+        // }, 0);
     }
 
     onDrawerButtonTap(): void {
@@ -65,6 +65,7 @@ export class OrderEntityComponent implements OnInit, AfterViewInit {
         // this.queryCount = this.totalItems;
         // this.page = pagingParams.page;
         this.orderEntities = data;
+        this.isBusy = false;
         console.log(this.orderEntities);
     }
 

@@ -6,29 +6,31 @@ import { BarcodeScanner } from "nativescript-barcodescanner";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { switchMap } from "rxjs/operators";
 import * as dialogs from "tns-core-modules/ui/dialogs";
-import { Product } from "~/product/product.model";
-import { ProductService } from "~/product/product.service";
+import { OrderItem } from "~/order-entity/order-item.model";
+import { OrderItemService } from "~/order-entity/order-item.service";
 
 @Component({
-    selector: "ProductDetail",
+    selector: "OrderItemDetail",
     moduleId: module.id,
-    templateUrl: "./product-detail.component.html"
+    templateUrl: "./order-item-detail.component.html"
 })
-export class ProductDetailComponent implements OnInit {
+export class OrderItemDetailComponent implements OnInit {
 
-    private product: Product;
+    private orderItem: OrderItem;
+    private orderEntityId: number;
 
     constructor(private barcodeScanner: BarcodeScanner,
                 private pageRoute: PageRoute,
                 private routerExtensions: RouterExtensions,
-                private productService: ProductService) {
+                private orderItemService: OrderItemService) {
     }
 
     ngOnInit(): void {
         this.pageRoute.activatedRoute.pipe(
             switchMap((activatedRoute) => activatedRoute.params)
         ).forEach((params) => {
-            const id = +params["id"];
+            const id = +params["orderItemId"];
+            this.orderEntityId = +params["id"];
             this.load(id);
         });
     }
@@ -39,35 +41,34 @@ export class ProductDetailComponent implements OnInit {
     }
 
     load(id: number) {
-        this.productService.find(id).subscribe(
-            (res: HttpResponse<Product>) => this.onSuccess(res.body, res.headers),
+        this.orderItemService.find(id).subscribe(
+            (res: HttpResponse<OrderItem>) => this.onSuccess(res.body, res.headers),
             (res: HttpErrorResponse) => this.onError(res.message)
         );
     }
 
     private onSuccess(data, headers) {
-        // this.links = this.parseLinks.parse(headers.get('link'));
-        // this.totalItems = headers.get('X-Total-Count');
-        // this.queryCount = this.totalItems;
-        // this.page = pagingParams.page;
-        this.product = data;
-        console.log(this.product);
+        this.orderItem = data;
+        console.log(this.orderItem);
     }
 
     private onError(error) {
         dialogs.alert({
-            title: "Hiba a termék lekérésekor",
+            title: "Hiba a bevételezési tétel lekérésekor",
             message: error.status + error.statusMessage,
             okButtonText: "Bezárás"
         }).then(() => {
-            console.log("Hiba a termék lekérésekor");
-            this.routerExtensions.navigate(["/products"]);
+            console.log("Hiba a bevételezési tétel lekérésekor");
+            this.routerExtensions.navigate(["/order-entities", this.orderEntityId]);
         });
     }
 
+    private onEdit() {
+    }
+
     private onDelete() {
-        this.productService.delete(this.product.id).subscribe(
-            (res: HttpResponse<any>) => this.routerExtensions.navigate(["/products"]),
+        this.orderItemService.delete(this.orderItem.id).subscribe(
+            (res: HttpResponse<any>) => this.routerExtensions.navigate(["/order-entities", this.orderEntityId]),
             (res: HttpErrorResponse) => this.onError(res.message)
         );
     }

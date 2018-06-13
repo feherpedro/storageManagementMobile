@@ -21,6 +21,7 @@
                 </StackLayout>
             </ng-template>
         </ListView>
+        <ActivityIndicator row="0" rowSpan="5" colSpan="2" [busy]="isBusy" class="activity-indicator"></ActivityIndicator>
     </GridLayout>
     <!--<Repeater items="{{ orderEntities }}">
         <Repeater.itemTemplate>

@@ -1,10 +1,10 @@
 import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
-import { OrderEntityComponent } from "~/order-entity/order-entity.component";
+import { OrderItemComponent } from "~/order-item/order-item.component";
 
 const routes: Routes = [
-    { path: "", component: OrderEntityComponent }
+    { path: "", component: OrderItemComponent }
 ];
 
 @NgModule({

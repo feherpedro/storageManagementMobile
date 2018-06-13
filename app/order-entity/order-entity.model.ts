@@ -1,4 +1,4 @@
-import { OrderItem } from "~/order-item/order-item.model";
+import { OrderItem } from "~/order-entity/order-item.model";
 
 export class OrderEntity {
     constructor(
